@@ -1407,5 +1407,24 @@ footer {
     flex-direction: column;
     gap: 20px;
     text-align: center;
-  }
 }
+
+/* Disabled state helper styling to clearly separate inactive/active SNS */
+.model-sns-indicator a.disabled {
+  opacity: 0.15 !important;
+  color: #555 !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+.model-sns-indicator a.disabled i {
+  transform: none !important;
+}
+
+.sns-circle-btn.disabled {
+  color: #333 !important;
+  border-color: rgba(255, 255, 255, 0.03) !important;
+  opacity: 0.25 !important;
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
