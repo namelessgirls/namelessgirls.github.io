@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luna & Lea - NamelessGirls【AI Agency】</title>
+  
+  <!-- Strict Crawler Exclusion -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Direct Web Fonts for branding and handwriting/signature elements -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600;700&family=Inter:wght@100;200;300;400;500;600&family=Noto+Sans+JP:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&family=Mr+De+Haviland&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=10.0">
+  
+  <style>
+    .profile-container {
+      padding-top: 140px;
+      padding-bottom: 60px;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 60px;
+      margin-bottom: 70px;
+      align-items: stretch;
+    }
+    .profile-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 1px solid var(--color-border);
+      border-radius: 2px;
+      box-shadow: var(--box-shadow-subtle);
+    }
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-header {
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 12px;
+      margin-bottom: 22px;
+    }
+    .profile-board {
+      font-size: 0.75rem;
+      color: var(--color-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .profile-name-en {
+      font-family: var(--font-title);
+      font-size: 3rem;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-top: 5px;
+    }
+    .profile-name-jp {
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      margin-top: 5px;
+      letter-spacing: 1px;
+      display: block;
+    }
+    .profile-specs {
+      font-size: 0.85rem;
+      line-height: 2;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 15px;
+      margin-bottom: 22px;
+    }
+    .profile-specs span {
+      display: inline-block;
+      margin-right: 30px;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.5px;
+    }
+    .profile-specs strong {
+      color: #ffffff;
+      font-weight: 500;
+      margin-left: 6px;
+    }
+    .profile-bio {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.9;
+      margin-bottom: 25px;
+    }
+    .profile-message-box {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+      margin-bottom: 25px;
+    }
+    .profile-message-title {
+      color: var(--color-primary);
+      display: block;
+      margin-bottom: 12px;
+      font-family: var(--font-title);
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+    .profile-message-text {
+      font-family: 'Yomogi', 'Zen Kurenaido', cursive;
+      font-size: 1.0rem;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 2.0;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    .profile-signature {
+      text-align: right;
+      font-family: 'Mr De Haviland', 'Caveat', cursive;
+      font-size: 2.6rem;
+      color: var(--color-primary);
+      margin-top: 10px;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .profile-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 22px;
+    }
+    .profile-buttons-wrap {
+      display: flex;
+      gap: 15px;
+      width: 100%;
+    }
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      height: 48px;
+      font-family: var(--font-title);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+      gap: 8px;
+      padding: 0 10px;
+      text-decoration: none;
+    }
+    .profile-btn.disabled {
+      opacity: 0.3 !important;
+      cursor: default !important;
+      pointer-events: none !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      background: transparent !important;
+      color: rgba(255, 255, 255, 0.3) !important;
+    }
+    .btn-composite {
+      background-color: var(--color-primary);
+      color: #080809;
+      border-color: var(--color-primary);
+    }
+    .btn-composite:hover {
+      background-color: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      box-shadow: var(--box-shadow-gold);
+    }
+    .btn-lounge {
+      background-color: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .btn-lounge:hover {
+      background-color: var(--color-primary);
+      color: #080809;
+      box-shadow: var(--box-shadow-gold);
+    }
+    
+    .profile-sns-row {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    .sns-circle-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 1.25rem;
+      background: transparent;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+    .sns-circle-btn.disabled {
+      opacity: 0.15 !important;
+      color: #555 !important;
+      border-color: rgba(255, 255, 255, 0.03) !important;
+      pointer-events: none !important;
+      cursor: default !important;
+    }
+    .sns-circle-btn[title="YouTube"]:hover {
+      border-color: #ff0000;
+      color: #ff0000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
+      background: rgba(255, 0, 0, 0.02);
+      transform: translateY(-2px);
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      clear: both;
+    }
+    .gallery-title {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .gallery-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--color-primary);
+      margin: 12px auto 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: 2px;
+      cursor: pointer;
+      box-shadow: var(--box-shadow-subtle);
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+      filter: brightness(0.8);
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.04);
+      filter: brightness(0.95);
+    }
+    
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 11, 12, 0.95);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85%;
+      position: relative;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--box-shadow-subtle);
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      display: block;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      background: transparent;
+      border: none;
+    }
+    .lightbox-close:hover {
+      color: var(--color-primary);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 968px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .profile-main-img {
+        max-width: 450px;
+        height: 550px;
+        margin: 0 auto;
+      }
+      .profile-info {
+        align-items: center;
+        text-align: center;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .profile-main-img {
+        height: 450px;
+      }
+      .profile-specs span {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="logo">NAMELESS<span>GIRLS</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" onclick="if(document.referrer.indexOf(window.location.host)!==-1){history.back(); return false;}">Back</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <div class="container profile-container">
+    <div class="profile-grid">
+      <!-- Left Column: Portrait -->
+      <img src="assets/images/models/sana-yua/main.jpg" alt="Luna & Lea Portrait" class="profile-main-img">
+      
+      <!-- Right Column: Specs & Bio -->
+      <div class="profile-info">
+        <div class="profile-header">
+          <div class="profile-board">NamelessGirls Trainee</div>
+          <h1 class="profile-name-en">LUNA & LEA</h1>
+          <span class="profile-name-jp">有栖 さな & 桜井 ゆあ &mdash; K-Pop Style Vlog</span>
+        </div>
+        
+        <!-- Specs Info (Dual configuration) -->
+        <div class="profile-specs" style="line-height: 1.8;">
+          <div style="margin-bottom: 8px;">
+            <span style="color: var(--color-primary); font-weight: 500; min-width: 100px; display: inline-block;">LUNA (さな):</span>
+            <span>Height: <strong>163</strong></span>
+            <span>Shoes: <strong>23.5</strong></span>
+          </div>
+          <div>
+            <span style="color: var(--color-primary); font-weight: 500; min-width: 100px; display: inline-block;">LEA (ゆあ):</span>
+            <span>Height: <strong>166</strong></span>
+            <span>Shoes: <strong>24.0</strong></span>
+          </div>
+        </div>
+        
+        <!-- Bio Description -->
+        <p class="profile-bio">
+          息のぴったり合ったシンクロ率の高いダンスパフォーマンスと、K-POPカルチャーにインスパイアされた華やかで躍動的な日常Vlogで人気を集める、まるで双子のような女性ユニット。天真爛漫でキュートな愛されキャラの『さな (Luna)』と、クールで大人っぽくファッショナブルな『ゆあ (Lea)』。二人の絶妙なバディ感と明るいシナジー効果で、見る者全てに新鮮なハッピーエネルギーを届けるべく、研修生として新たに合流。
+        </p>
+        
+        <!-- Personal Message -->
+        <div class="profile-message-box">
+          <span class="profile-message-title">【PERSONAL NOTE】</span>
+          <div class="profile-message-text">
+            私たちの息の合った掛け合いとダンスを通じて、画面の前の皆さんに元気を届けたいです！<br>
+            最新のメイクやファッション、二人のリアルなハッピーライフをお届けするので楽しみに待っていてくださいね。<br>
+            私たちのストーリーに、ぜひ加わってください！
+            <div class="profile-signature">Luna & Lea</div>
+          </div>
+        </div>
+        
+        <!-- Actions & Links -->
+        <div class="profile-actions">
+          <div class="profile-buttons-wrap">
+            <a class="profile-btn btn-composite disabled" title="準備中">
+              <i class="fa-regular fa-images"></i> COMPOSITE (準備中)
+            </a>
+            <a class="profile-btn btn-lounge disabled" title="準備中">
+              <i class="fa-regular fa-star"></i> VIP LOUNGE (準備中)
+            </a>
+          </div>
+          
+          <div class="profile-sns-row">
+            <a href="https://www.youtube.com/@a.girl2025" target="_blank" class="sns-circle-btn" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a class="sns-circle-btn disabled" title="Instagram (準備中)"><i class="fab fa-instagram"></i></a>
+            <a class="sns-circle-btn disabled" title="TikTok (準備中)"><i class="fab fa-tiktok"></i></a>
+            <a class="sns-circle-btn disabled" title="X (準備中)"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Photo Gallery Grid -->
+    <div class="gallery-section">
+      <h2 class="gallery-title">Photo Gallery</h2>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Loaded dynamically by JavaScript from assets/images/models/sana-yua/gallery/ -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Gallery Popups -->
+  <div class="lightbox-modal" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
+      <img src="" alt="Popup Image" class="lightbox-img" id="lightbox-img">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 NamelessGirls. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modelId = 'sana-yua'; // Model folder ID
+      const galleryGrid = document.getElementById('gallery-grid');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      // Sequentially load gallery images from the model's assets directory
+      function loadGalleryImages() {
+        let index = 1;
+        
+        function tryLoadNext() {
+          const imgPath = `assets/images/models/${modelId}/gallery/${index}.jpg`;
+          const tempImg = new Image();
+          
+          tempImg.onload = () => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.setAttribute('data-img', imgPath);
+            
+            const img = document.createElement('img');
+            img.src = imgPath;
+            img.alt = `${modelId} Gallery ${index}`;
+            img.className = 'gallery-img';
+            
+            item.appendChild(img);
+            galleryGrid.appendChild(item);
+            
+            item.addEventListener('click', () => {
+              lightboxImg.src = imgPath;
+              lightbox.classList.add('active');
+              document.body.style.overflow = 'hidden';
+            });
+            
+            index++;
+            tryLoadNext();
+          };
+          
+          tempImg.onerror = () => {
+            console.log(`Finished loading gallery for ${modelId}. Total: ${index - 1} images.`);
+          };
+          
+          tempImg.src = imgPath;
+        }
+        
+        tryLoadNext();
+      }
+
+      loadGalleryImages();
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          lightboxImg.src = '';
+        }, 300);
+      };
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
