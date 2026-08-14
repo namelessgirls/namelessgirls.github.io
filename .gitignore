@@ -1,0 +1,4 @@
+.git_portable/
+.gemini/
+*.temp
+*.log

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noa - NamelessGirls【AI Agency】</title>
+  
+  <!-- Strict Crawler Exclusion -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  
+  <!-- FontAwesome for Icons (Upgraded to 6.5.1 for Threads logo support) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Direct Web Fonts for branding and handwriting/signature elements -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;600;700&family=Inter:wght@100;200;300;400;500;600&family=Noto+Sans+JP:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&family=Mr+De+Haviland&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=2.5">
+  
+  <style>
+    .profile-container {
+      padding-top: 140px;
+      padding-bottom: 60px;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 480px 1fr; /* Widened slightly to balance portrait aspect ratio */
+      gap: 60px;
+      margin-bottom: 70px; /* Reduced to pull gallery up nicely */
+      align-items: stretch; /* Stretch columns to match heights */
+    }
+    .profile-main-img {
+      width: 100%;
+      height: 100%; /* Automatically scales up to match the right column's height */
+      object-fit: cover;
+      border: 1px solid var(--color-border);
+      border-radius: 2px;
+      box-shadow: var(--box-shadow-subtle);
+    }
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-header {
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 12px;
+      margin-bottom: 22px; /* Restored tight elegant gap */
+    }
+    .profile-board {
+      font-size: 0.75rem;
+      color: var(--color-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .profile-name-en {
+      font-family: var(--font-title);
+      font-size: 3rem;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-top: 5px;
+    }
+    .profile-name-jp {
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      margin-top: 5px;
+      letter-spacing: 1px;
+      display: block;
+    }
+    .profile-specs {
+      font-size: 0.85rem;
+      line-height: 2;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 15px;
+      margin-bottom: 22px; /* Restored tight elegant gap */
+    }
+    .profile-specs span {
+      display: inline-block;
+      margin-right: 30px;
+      color: rgba(255, 255, 255, 0.45); /* Elegant low-opacity white label */
+      letter-spacing: 0.5px;
+    }
+    .profile-specs strong {
+      color: #ffffff; /* Highly visible pure white spec values */
+      font-weight: 500;
+      margin-left: 6px;
+    }
+    .profile-bio {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.85); /* Much brighter white for readability */
+      line-height: 1.9;
+      margin-bottom: 25px; /* Restored tight elegant gap */
+    }
+    .profile-message-box {
+      border-top: 1px solid rgba(255, 255, 255, 0.05); /* Separate sections cleanly */
+      padding-top: 20px;
+      margin-bottom: 25px; /* Restored tight elegant gap */
+    }
+    .profile-message-title {
+      color: var(--color-primary); /* Gold header for note section */
+      display: block;
+      margin-bottom: 12px;
+      font-family: var(--font-title);
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+    .profile-message-text {
+      font-family: 'Yomogi', 'Zen Kurenaido', cursive; /* Authentic Japanese handwritten pen font */
+      font-size: 1.0rem; /* Elegant pen size scale */
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 2.0;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    .profile-signature {
+      text-align: right;
+      font-family: 'Mr De Haviland', 'Caveat', cursive; /* Flowing script cursive signature font */
+      font-size: 2.6rem; /* Restored premium elegant sign scale */
+      color: var(--color-primary);
+      margin-top: 10px; /* Spaced down from text to prevent overlapping and look clean */
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .profile-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 22px; /* Restored tight elegant gap */
+    }
+    .profile-buttons-wrap {
+      display: flex;
+      gap: 15px;
+      width: 100%;
+    }
+    .profile-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1; /* Expand equally */
+      height: 48px;
+      font-family: var(--font-title);
+      font-size: 0.68rem; /* Tightened for 1 row layout */
+      font-weight: 500;
+      letter-spacing: 1px; /* Tightened to prevent wrapping */
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+      gap: 8px;
+      padding: 0 10px;
+    }
+    .profile-btn small {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.5px;
+      opacity: 0.8;
+      text-transform: none;
+    }
+    .btn-composite {
+      background-color: var(--color-primary);
+      color: #080809;
+      border-color: var(--color-primary);
+    }
+    .btn-composite:hover {
+      background-color: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      box-shadow: var(--box-shadow-gold);
+    }
+    .btn-lounge {
+      background-color: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+    .btn-lounge:hover {
+      background-color: var(--color-primary);
+      color: #080809;
+      box-shadow: var(--box-shadow-gold);
+    }
+    
+    /* Premium Coming-Soon/Locked Button Styles */
+    .profile-btn.disabled-btn {
+      background-color: rgba(255, 255, 255, 0.01) !important;
+      border: 1px solid rgba(197, 168, 128, 0.22) !important;
+      color: rgba(197, 168, 128, 0.5) !important;
+      cursor: default !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .profile-btn.disabled-btn:hover {
+      background-color: rgba(255, 255, 255, 0.01) !important;
+      border-color: rgba(197, 168, 128, 0.22) !important;
+      color: rgba(197, 168, 128, 0.5) !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    
+    /* Luxury Circle SNS Buttons Tray */
+    .profile-sns-row {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+      justify-content: center; /* Center-aligned for high-end boutique appeal */
+      margin-top: 15px;
+    }
+    .sns-circle-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 1.25rem;
+      background: transparent;
+      transition: var(--transition-smooth);
+    }
+    .sns-circle-btn[title="TikTok"]:hover {
+      border-color: #ff0050;
+      color: #ff0050;
+      box-shadow: 0 0 15px rgba(255, 0, 80, 0.25);
+      background: rgba(255, 0, 80, 0.02);
+      transform: translateY(-2px);
+    }
+    .sns-circle-btn[title="Instagram"]:hover {
+      border-color: #e1306c;
+      color: #e1306c;
+      box-shadow: 0 0 15px rgba(225, 48, 108, 0.25);
+      background: rgba(225, 48, 108, 0.02);
+      transform: translateY(-2px);
+    }
+    .sns-circle-btn[title="Threads"]:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      box-shadow: var(--box-shadow-gold);
+      background: rgba(197, 168, 128, 0.05);
+      transform: translateY(-2px);
+    }    .sns-circle-btn.disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+    .sns-circle-btn.disabled:hover {
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      color: rgba(255, 255, 255, 0.45) !important;
+      box-shadow: none !important;
+      transform: none !important;
+      background: transparent !important;
+    }
+
+    /* Gallery Section - Prevents overlap and spaces nicely */
+    .gallery-section {
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      clear: both;
+    }
+
+    /* Gallery Grid */
+    .gallery-title {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .gallery-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--color-primary);
+      margin: 12px auto 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: 2px;
+      cursor: pointer;
+      box-shadow: var(--box-shadow-subtle);
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+      filter: brightness(0.8);
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.04);
+      filter: brightness(0.95);
+    }
+    
+    /* Elegant Modal (Lightbox) */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 11, 12, 0.95);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85%;
+      position: relative;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--box-shadow-subtle);
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      display: block;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      background: transparent;
+      border: none;
+    }
+    .lightbox-close:hover {
+      color: var(--color-primary);
+    }
+
+    /* Mobile Responsive for Profile Page */
+    @media (max-width: 968px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .profile-main-img {
+        max-width: 450px;
+        height: 550px;
+        margin: 0 auto;
+      }
+      .profile-info {
+        align-items: center;
+        text-align: center;
+      }
+      .profile-links-list {
+        justify-content: center;
+      }
+      .profile-sns-list {
+        justify-content: center;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .profile-main-img {
+        height: 450px;
+      }
+      .profile-specs span {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="logo">NAMELESS<span>GIRLS</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" onclick="if(document.referrer.indexOf(window.location.host)!==-1){history.back(); return false;}">Back</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <div class="container profile-container">
+    <div class="profile-grid">
+      <!-- Left Column: Portrait -->
+      <img src="assets/images/models/noa/main.jpg" alt="Noa Portrait" class="profile-main-img">
+      
+      <!-- Right Column: Specs & Bio -->
+      <div class="profile-info">
+        <div class="profile-header">
+          <div class="profile-board">NamelessGirls Exclusive</div>
+          <h1 class="profile-name-en">NOA</h1>
+          <span class="profile-name-jp">乃愛 &mdash; Fashion</span>
+        </div>
+        
+        <!-- Specs Info -->
+        <div class="profile-specs">
+          <span>Height: <strong>168</strong></span>
+          <span>Bust: <strong>96</strong></span>
+          <span>Waist: <strong>56</strong></span>
+          <span>Hips: <strong>90</strong></span>
+          <span>Shoes: <strong>24.5</strong></span>
+        </div>
+        
+        <!-- Bio Description -->
+        <p class="profile-bio">
+          アンニュイな表情と凛とした佇まいが魅力のファッションモデル。様々なブランドの衣装を独自の感性で表現し、SNSを通じてリアルなライフスタイルと洗練されたコーディネートを発信している。
+        </p>
+        
+        <!-- Personal Message (Replaces Works to avoid fake achievements) -->
+        <div class="profile-message-box">
+          <span class="profile-message-title">【PERSONAL NOTE】</span>
+          <div class="profile-message-text">
+            いろんなブランドの服を着て、新しい自分を見つけるのが大好きです。<br>
+            私のコーディネートが、毎日のオシャレの参考になれば嬉しいです。
+            <div class="profile-signature">Noa</div>
+          </div>
+        </div>
+        
+        <!-- Actions & Links -->
+        <div class="profile-actions">
+          <div class="profile-buttons-wrap">
+            <a class="profile-btn btn-composite disabled-btn" title="デジタル写真集 (準備中)">
+              <i class="fa-solid fa-lock"></i> COMPOSITE (準備中)
+            </a>
+            <a class="profile-btn btn-lounge disabled-btn" title="ファンクラブ (準備中)">
+              <i class="fa-solid fa-lock"></i> VIP LOUNGE (準備中)
+            </a>
+          </div>
+          
+          <div class="profile-sns-row">
+            <a class="sns-circle-btn disabled" title="TikTok (準備中)"><i class="fab fa-tiktok"></i></a>
+            <a class="sns-circle-btn disabled" title="Instagram (準備中)"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Photo Gallery Grid (サトルジャパン風) -->
+    <div class="gallery-section">
+      <h2 class="gallery-title">Photo Gallery</h2>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Loaded dynamically by JavaScript from assets/images/models/mii/gallery/ -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Gallery Popups -->
+  <div class="lightbox-modal" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close"><i class="fas fa-times"></i></button>
+      <img src="" alt="Popup Image" class="lightbox-img" id="lightbox-img">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 NamelessGirls. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modelId = 'noa'; // Model folder ID
+      const galleryGrid = document.getElementById('gallery-grid');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      // Sequentially load gallery images from the model's assets directory
+      function loadGalleryImages() {
+        let index = 1;
+        
+        function tryLoadNext() {
+          const imgPath = `assets/images/models/${modelId}/gallery/${index}.jpg`;
+          const tempImg = new Image();
+          
+          tempImg.onload = () => {
+            // Create gallery item elements if image exists
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            item.setAttribute('data-img', imgPath);
+            
+            const img = document.createElement('img');
+            img.src = imgPath;
+            img.alt = `${modelId} Gallery ${index}`;
+            img.className = 'gallery-img';
+            
+            item.appendChild(img);
+            galleryGrid.appendChild(item);
+            
+            // Re-apply lightbox listener on dynamic element
+            item.addEventListener('click', () => {
+              lightboxImg.src = imgPath;
+              lightbox.classList.add('active');
+              document.body.style.overflow = 'hidden'; // Lock scroll
+            });
+            
+            // Loop next image index
+            index++;
+            tryLoadNext();
+          };
+          
+          tempImg.onerror = () => {
+            // End loading loop when sequence breaks
+            console.log(`Finished loading gallery for ${modelId}. Total: ${index - 1} images.`);
+          };
+          
+          tempImg.src = imgPath;
+        }
+        
+        tryLoadNext();
+      }
+
+      // Initialize dynamic gallery fetch
+      loadGalleryImages();
+
+      // Lightbox control functions
+      const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = ''; // Unlock scroll
+        setTimeout(() => {
+          lightboxImg.src = '';
+        }, 300);
+      };
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

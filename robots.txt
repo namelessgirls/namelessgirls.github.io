@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /lounge.html
+Disallow: /shop.html
+Disallow: /assets/

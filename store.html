@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept Store - NamelessGirls</title>
+  
+  <!-- Strict Crawler Exclusion for Portal Consistency -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=5.1">
+  
+  <style>
+    .store-container {
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+    .store-intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      color: var(--color-text-sub);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    .store-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .store-portal-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--color-border);
+      border-radius: 2px;
+      background: var(--bg-card);
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+    .store-portal-card:hover {
+      border-color: var(--color-border-hover);
+      box-shadow: var(--box-shadow-gold);
+      transform: translateY(-5px);
+    }
+    .store-img-wrap {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .store-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+      filter: brightness(0.8);
+    }
+    .store-portal-card:hover .store-img {
+      transform: scale(1.03);
+      filter: brightness(0.95);
+    }
+    .store-content-wrap {
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      gap: 20px;
+    }
+    .store-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .store-card-title {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      font-weight: 400;
+    }
+    .store-card-desc {
+      font-size: 0.75rem;
+      color: var(--color-text-sub);
+      line-height: 1.7;
+    }
+    .store-btn {
+      width: 100%;
+    }
+    
+    @media (max-width: 768px) {
+      .store-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .store-img-wrap {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="scrolled">
+    <div class="container navbar">
+      <a href="index.html" class="logo">NAMELESS<span>GIRLS</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" onclick="if(document.referrer.indexOf(window.location.host)!==-1){history.back(); return false;}">Back</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Store Section -->
+  <div class="container store-container">
+    <h2 class="section-title">Concept Store<span>Selected Items & Gears</span></h2>
+    
+    <p class="store-intro">
+      NamelessGirls所属のモデルたちが実際に愛用・推奨している撮影アイテムのご紹介です。<br>
+      コーディネートの参考となる衣服やコスメ、高画質な映像表現を支える機材・ガジェットをセレクトしています。
+    </p>
+
+    <div class="store-grid">
+      <!-- Card 1: Rakuten Room (Styled Items) -->
+      <div class="store-portal-card">
+        <div class="store-img-wrap">
+          <img src="assets/images/rakuten_preview.jpg" alt="Styled Items Cosmetics" class="store-img">
+        </div>
+        <div class="store-content-wrap">
+          <div class="store-info">
+            <h3 class="store-card-title">Styled Items</h3>
+            <p class="store-card-desc">
+              モデルたちの着用衣装や使用しているコスメ、撮影時のスタジオ小物などを集めたセレクトカタログ（外部提携：楽天ROOM）。エモーショナルな日常スタイルを再現するためのセレクトアイテム一覧をご覧いただけます。
+            </p>
+          </div>
+          <a href="https://room.rakuten.co.jp/a_girl/items" target="_blank" class="btn btn-primary store-btn">
+            <i class="fa-solid fa-bag-shopping"></i> View Styled Catalog
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Amazon Storefront (Equipment & Gears) -->
+      <div class="store-portal-card">
+        <div class="store-img-wrap">
+          <img src="assets/images/amazon_preview.jpg" alt="Camera Gears Light" class="store-img">
+        </div>
+        <div class="store-content-wrap">
+          <div class="store-info">
+            <h3 class="store-card-title">Equipment & Gears</h3>
+            <p class="store-card-desc">
+              ハイクオリティな動画撮影やライティングに使用されているプロ仕様の撮影機材、照明ガジェット、愛用ガジェットのご紹介（外部提携：Amazon）。クリエイティブな表現活動を支えるプロダクトをセレクトしています。
+            </p>
+          </div>
+          <a href="https://amzn.asia/d/02xXDoou" target="_blank" class="btn btn-primary store-btn">
+            <i class="fa-solid fa-camera"></i> View Equipments
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 NamelessGirls. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

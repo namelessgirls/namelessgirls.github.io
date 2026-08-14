@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIP Lounge - NamelessGirls</title>
+  
+  <!-- Strict Crawler Exclusion -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .lounge-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 40px;
+    }
+    .lounge-card {
+      max-width: 600px;
+      width: 100%;
+      padding: 40px;
+      text-align: center;
+    }
+    .lounge-logo {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .lounge-logo span {
+      color: var(--color-primary);
+    }
+    .lounge-warning {
+      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 2px;
+      padding: 24px;
+      margin: 30px 0;
+      font-size: 0.85rem;
+      color: var(--color-text-sub);
+    }
+    .lounge-warning strong {
+      color: #fff;
+      font-family: var(--font-title);
+      letter-spacing: 1px;
+    }
+    .verification-box {
+      margin: 30px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+    .verification-box input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: var(--color-primary);
+    }
+    .vip-links-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+      opacity: 0.5;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+    .vip-links-container.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .vip-link-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--color-border);
+      border-radius: 2px;
+      font-family: var(--font-title);
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      color: #fff;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      text-transform: uppercase;
+    }
+    .vip-link-btn:hover {
+      background: rgba(197, 168, 128, 0.05);
+      border-color: var(--color-primary);
+      box-shadow: var(--box-shadow-gold);
+      transform: translateY(-2px);
+    }
+    .vip-link-btn.patreon:hover {
+      background: rgba(255, 66, 77, 0.02);
+      border-color: #ff424d;
+      box-shadow: 0 10px 30px rgba(255, 66, 77, 0.1);
+    }
+    .vip-link-btn i {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header (Mini) -->
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="logo">NAMELESS<span>GIRLS</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" onclick="if(document.referrer.indexOf(window.location.host)!==-1){history.back(); return false;}">Back</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Lounge Container -->
+  <div class="lounge-container">
+    <div class="lounge-card glass-panel">
+      <div class="lounge-logo">VIP<span>GATE</span></div>
+      
+      <p style="color: var(--color-text-sub); font-size: 0.85rem; line-height: 1.8;">
+        これより先は、NamelessGirlsのエージェンシー所属モデルによる限定ポートレート、先行公開映像、およびプレミアムサポーター向けコンテンツが掲載されている公式ファンクラブ（Fantia）へと遷移します。
+      </p>
+
+      <div class="lounge-warning">
+        <i class="fa-solid fa-shield-halved" style="color: var(--color-primary); margin-bottom: 12px; font-size: 1.2rem;"></i><br>
+        <strong>ACCESS VERIFICATION</strong><br>
+        リンク先のコンテンツには、一部センシュアルな表現が含まれる場合があります。18歳未満の方のアクセスはお控えください。
+      </div>
+
+      <!-- Verification Lock (Shield against simple crawlers) -->
+      <div class="verification-box">
+        <input type="checkbox" id="verify-age">
+        <label for="verify-age" style="cursor: pointer; color: var(--color-text-sub);">私は18歳以上であり、外部コンテンツの表示に同意します</label>
+      </div>
+
+      <!-- Obfuscated Links (Rendered dynamically by JavaScript to prevent static code scanning) -->
+      <div class="vip-links-container" id="vip-links">
+        <div style="text-align: center; font-size: 0.8rem; color: var(--color-text-sub);">
+          同意チェックボックスをオンにすると、アクセスリンクが表示されます。
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script>
+    // Local script for decrypting and rendering obfuscated links dynamically
+    document.addEventListener('DOMContentLoaded', () => {
+      const verifyCheckbox = document.getElementById('verify-age');
+      const linksContainer = document.getElementById('vip-links');
+
+      // Base64 Encoded Target URLs (Obfuscated to hide domain addresses from static scanner bots)
+      // Mii Fantia (Demo): https://fantia.jp/ (Base64: aHR0cHM6Ly9mYW50aWEuanAv)
+      const encodedUrls = {
+        fantia_mii: 'aHR0cHM6Ly9mYW50aWEuanAv'
+      };
+
+      const decodeUrl = (encodedStr) => {
+        try {
+          return atob(encodedStr);
+        } catch (e) {
+          return '#';
+        }
+      };
+
+      verifyCheckbox.addEventListener('change', () => {
+        if (verifyCheckbox.checked) {
+          linksContainer.classList.add('active');
+          renderVipLinks();
+        } else {
+          linksContainer.classList.remove('active');
+          linksContainer.innerHTML = `<div style="text-align: center; font-size: 0.8rem; color: var(--color-text-sub);">同意チェックボックスをオンにすると、アクセスリンクが表示されます。</div>`;
+        }
+      });
+
+      function renderVipLinks() {
+        linksContainer.innerHTML = `
+          <div style="text-align: left; margin-bottom: 10px; font-size: 0.8rem; color: var(--color-primary); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+            <i class="fas fa-lock-open"></i> Available VIP Channel
+          </div>
+          
+          <button class="vip-link-btn" data-url="${encodedUrls.fantia_mii}">
+            <span><i class="fas fa-heart" style="color: var(--color-primary); margin-right: 10px;"></i> Mii Official Fantia (限定画像・ファンクラブ)</span>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        `;
+
+        // Add event listeners to decoded navigation buttons
+        const vipButtons = linksContainer.querySelectorAll('.vip-link-btn');
+        vipButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetUrl = decodeUrl(btn.getAttribute('data-url'));
+            if (targetUrl && targetUrl !== '#') {
+              window.open(targetUrl, '_blank', 'noopener,noreferrer');
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
