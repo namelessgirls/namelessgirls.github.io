@@ -159,8 +159,8 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(to bottom, rgba(8, 8, 9, 0.7) 0%, rgba(8, 8, 9, 0.0) 100%); /* Dark shadow top-down gradient for text readability */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.0);
+  background: transparent; /* Set back to completely transparent to remove the edge line */
+  border-bottom: none;
   transition: background 0.4s ease, border 0.4s ease;
 }
 
@@ -242,9 +242,9 @@ header.scrolled .navbar {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 9, 0.7) 0%,
-    rgba(8, 8, 9, 0.45) 50%,
-    rgba(8, 8, 9, 0.8) 85%,
+    rgba(8, 8, 9, 0.8) 0%,
+    rgba(8, 8, 9, 0.25) 45%,
+    rgba(8, 8, 9, 0.85) 85%,
     var(--bg-color) 100%
   );
   z-index: 1;
