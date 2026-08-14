@@ -159,16 +159,16 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: transparent; /* Set back to completely transparent to remove the edge line */
-  border-bottom: none;
-  transition: background 0.4s ease, border 0.4s ease;
+  background: transparent;
+  border-bottom: none !important; /* Completely removed to prevent white flash glitch */
+  transition: background 0.4s ease;
 }
 
 header.scrolled {
   background: rgba(8, 8, 9, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: none !important; /* Completely removed border for a cleaner aesthetic */
 }
 
 .navbar {
