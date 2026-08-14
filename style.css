@@ -159,7 +159,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: transparent;
+  background: linear-gradient(to bottom, rgba(8, 8, 9, 0.7) 0%, rgba(8, 8, 9, 0.0) 100%); /* Dark shadow top-down gradient for text readability */
   border-bottom: 1px solid rgba(255, 255, 255, 0.0);
   transition: background 0.4s ease, border 0.4s ease;
 }
@@ -242,9 +242,9 @@ header.scrolled .navbar {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 9, 0.4) 0%,
-    rgba(8, 8, 9, 0.15) 55%,
-    rgba(8, 8, 9, 0.85) 90%,
+    rgba(8, 8, 9, 0.7) 0%,
+    rgba(8, 8, 9, 0.45) 50%,
+    rgba(8, 8, 9, 0.8) 85%,
     var(--bg-color) 100%
   );
   z-index: 1;
@@ -273,7 +273,7 @@ header.scrolled .navbar {
   letter-spacing: 14px;
   line-height: 1.1;
   text-transform: uppercase;
-  text-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 0, 0, 0.95);
 }
 
 .hero-title span {
@@ -281,12 +281,12 @@ header.scrolled .navbar {
 }
 
 .hero-subtitle {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 300;
   letter-spacing: 7px;
-  color: var(--color-text-sub);
+  color: rgba(255, 255, 255, 0.75);
   text-transform: uppercase;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.95);
 }
 
 /* Models Portfolio Section - Clean Professional Split Layout */
