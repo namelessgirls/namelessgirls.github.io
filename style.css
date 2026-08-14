@@ -316,7 +316,7 @@ header.scrolled .navbar {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 3; /* Elevated above info panel to make lower card clickable */
 }
 
 .model-card:hover {
@@ -622,7 +622,7 @@ header.scrolled .navbar {
 /* Model card active SNS indicator styling */
 .model-sns-indicator {
   position: relative;
-  z-index: 2; /* Elevate above the card click overlay */
+  z-index: 4; /* Elevated above the card click overlay (z-index: 3) */
   display: flex;
   align-items: center;
   gap: 12px;
