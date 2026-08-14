@@ -8,11 +8,11 @@
   <!-- Strict Crawler Exclusion -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   
-  <!-- FontAwesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- FontAwesome for Icons (Upgraded to 6.5.1 for icon reliability) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=6.0">
+  <!-- Custom Stylesheet with Cache Buster -->
+  <link rel="stylesheet" href="style.css?v=10.0">
 </head>
 <body>
 
@@ -34,72 +34,19 @@
       お仕事に関するお問い合わせを承っております。以下の項目をご入力の上、送信してください。
     </p>
     
-    <form class="contact-form" id="inquiry-form">
-      <div class="form-group">
-        <label class="form-label">ご依頼内容</label>
-        <div class="radio-group">
-          <label class="radio-label">
-            <input type="radio" name="request_type" value="広告・PRプロモーション" class="radio-input" checked> 広告・PR案件
-          </label>
-          <label class="radio-label">
-            <input type="radio" name="request_type" value="画像・映像ライセンス使用" class="radio-input"> ライセンス使用
-          </label>
-          <label class="radio-label">
-            <input type="radio" name="request_type" value="コラボレーション/その他" class="radio-input"> コラボ・その他
-          </label>
-        </div>
+    <!-- Clean Satoru-Japan style Google Form Gateway -->
+    <div class="glass-panel" style="max-width: 600px; margin: 40px auto 0; padding: 40px 30px; text-align: center; border: 1px solid var(--color-border); border-radius: 2px;">
+      <i class="fa-regular fa-paper-plane" style="color: var(--color-primary); font-size: 2.5rem; margin-bottom: 20px; display: inline-block;"></i>
+      <p style="color: var(--color-text-sub); font-size: 0.85rem; line-height: 1.8; margin-bottom: 30px; text-align: left;">
+        所属モデルへのPR案件・広告出演、画像や映像のライセンス利用、コラボレーション企画など、お仕事に関するお問い合わせは、セキュリティと大容量ファイル添付に対応した公式の「Googleフォーム」にて承っております。<br><br>
+        お手数ですが、以下のボタンをクリックしてフォームへお進みいただき、必要事項のご入力をお願いいたします。
+      </p>
+      <div style="display: flex; justify-content: center;">
+        <a href="https://docs.google.com/forms/d/1RIhCwWGOGhVFoNFXknqsOZOcdzdM1qexHEv0dGJZkO8/viewform" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none; width: 100%; max-width: 340px; height: 50px; font-family: var(--font-title); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;">
+          <i class="fab fa-google" style="margin-right: 10px; font-size: 0.85rem;"></i> お問い合わせフォームを開く
+        </a>
       </div>
-
-      <div class="form-group">
-        <label class="form-label" for="contact-name">お名前<span>※</span></label>
-        <div class="form-control-wrap">
-          <input type="text" id="contact-name" name="name" class="form-input" placeholder="例: 山田 太郎" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="contact-company">会社名</label>
-        <div class="form-control-wrap">
-          <input type="text" id="contact-company" name="company" class="form-input" placeholder="例: 株式会社〇〇（個人の場合は『個人』とご記入ください）">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="contact-email">Eメール<span>※</span></label>
-        <div class="form-control-wrap">
-          <input type="email" id="contact-email" name="email" class="form-input" placeholder="例: info@example.com" required>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label" for="contact-tel">電話番号<span>※</span></label>
-        <div class="form-control-wrap">
-          <input type="tel" id="contact-tel" name="tel" class="form-input" placeholder="例: 09012345678" required>
-        </div>
-      </div>
-
-      <div class="form-group align-top">
-        <label class="form-label" for="contact-message">メッセージ</label>
-        <div class="form-control-wrap">
-          <textarea id="contact-message" name="message" class="form-input form-textarea" placeholder="ご希望のモデル（例: Mii）、ご予算、使用媒体、掲載開始希望日など、ご用件の詳細を差し支えのない範囲でご記入ください。"></textarea>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">企画書・資料の添付</label>
-        <div class="form-control-wrap">
-          <div class="file-upload-wrap">
-            <label for="contact-file" class="file-label-btn"><i class="fas fa-paperclip"></i> ファイルの選択</label>
-            <input type="file" id="contact-file" name="attachment" class="file-input">
-            <span class="file-name-text" id="file-name">資料が選択されていません</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-submit-wrap">
-        <button type="submit" class="btn btn-primary btn-submit">上記の内容でお問い合わせ</button>
-      </div>
-    </form>
+    </div>
   </div>
 
   <!-- Footer -->
