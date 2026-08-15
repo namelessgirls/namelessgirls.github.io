@@ -796,16 +796,18 @@ header.scrolled .navbar {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-height: 125px; /* Ensures consistent height for all text areas so buttons align perfectly */
 }
 
 .shop-title {
   font-family: var(--font-title);
-  font-size: 1.25rem;
+  font-size: 1.12rem; /* Muted slightly to prevent 2-line wraps */
   font-weight: 300;
   letter-spacing: 2px;
   color: #ffffff;
   margin: 0;
   transition: color 0.4s;
+  white-space: nowrap; /* Prevents title from splitting into two lines */
 }
 
 .shop-card:hover .shop-title {
