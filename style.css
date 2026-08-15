@@ -725,44 +725,62 @@ header.scrolled .navbar {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  text-align: center;
-  padding: 35px 24px; /* Slightly compacted padding */
-  min-height: 490px; /* Compacted height for better visual proportions */
+  text-align: left; /* Shifted to left-alignment for modern boutique feel */
+  padding: 0; /* Clear padding to let image expand fully to borders */
+  min-height: 520px;
   position: relative;
   overflow: hidden;
   border-radius: 2px;
-  border: 1px solid var(--color-border);
-  transition: var(--transition-smooth);
-  text-decoration: none; /* Strip link styling since it is now an anchor */
-  color: inherit; /* Inherit the page font color */
+  border: 1px solid rgba(197, 168, 128, 0.12); /* Extremely subtle gold border */
+  background: rgba(11, 11, 12, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 0.4s, 
+              box-shadow 0.4s;
+  text-decoration: none;
+  color: inherit;
   cursor: pointer;
 }
 
 .shop-card:hover {
-  border-color: var(--color-border-hover);
-  box-shadow: var(--box-shadow-gold);
-  transform: translateY(-4px); /* Gently lift on hover */
+  border-color: rgba(197, 168, 128, 0.45); /* Brighten gold border on hover */
+  box-shadow: 0 12px 35px rgba(197, 168, 128, 0.08); /* Soft golden ambient glow */
+  transform: translateY(-6px);
 }
 
 .shop-card-img-wrapper {
-  width: 120px; /* Compacted image wrapper width */
-  height: 165px; /* Compacted height */
+  width: 100%; /* Expand image fully across horizontal card boundaries */
+  height: 250px; /* Generous visual height */
+  position: relative;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: 2px;
-  margin: 0 auto 20px;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.1);
   flex-shrink: 0;
+}
+
+/* Linear black gradient overlay directly mask-fading bottom of the card image */
+.shop-card-img-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(11, 11, 12, 0) 65%, rgba(11, 11, 12, 1) 100%);
+  pointer-events: none;
 }
 
 .shop-card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: var(--transition-smooth);
+  filter: brightness(0.72) contrast(1.05); /* Editorial dark high-contrast look */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s;
 }
 
 .shop-card:hover .shop-card-img {
   transform: scale(1.04);
+  filter: brightness(0.9) contrast(1.05); /* Gently light up on card hover */
 }
 
 .shop-card-content {
@@ -770,21 +788,24 @@ header.scrolled .navbar {
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  gap: 20px; /* Adjusted gap for tighter spacing */
+  padding: 24px 28px 30px; /* Generous internal padding for elegant layout whitespace */
+  gap: 25px;
 }
 
 .shop-info-text {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Compacted text gap */
+  gap: 8px;
 }
 
 .shop-title {
   font-family: var(--font-title);
-  font-size: 1.15rem; /* Slightly smaller for premium editorial header scale */
-  font-weight: 400;
+  font-size: 1.25rem;
+  font-weight: 300;
   letter-spacing: 2px;
-  transition: var(--transition-smooth);
+  color: #ffffff;
+  margin: 0;
+  transition: color 0.4s;
 }
 
 .shop-card:hover .shop-title {
@@ -794,19 +815,18 @@ header.scrolled .navbar {
 /* Gold Japanese Subtitle inside shop card */
 .shop-subtitle-jp {
   font-family: var(--font-body);
-  font-size: 0.65rem; /* Compacted subtitle */
+  font-size: 0.68rem;
   color: var(--color-primary);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   font-weight: 400;
-  margin-top: 2px;
-  text-transform: uppercase;
+  margin-top: 1px;
 }
 
 .shop-desc {
-  color: var(--color-text-sub);
-  font-size: 0.72rem; /* Balanced size for harmony with guide box */
+  color: rgba(255, 255, 255, 0.6); /* High-readability soft white */
+  font-size: 0.75rem;
   line-height: 1.8;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .shop-action {
@@ -814,18 +834,33 @@ header.scrolled .navbar {
   margin-top: auto;
 }
 
-.shop-action .btn {
+/* Premium Hollow Gold Button design matching boutique aesthetic */
+.shop-card .btn-primary {
   width: 100%;
-  padding: 12px 20px; /* Adjust button padding inside card */
-  pointer-events: none; /* Ignore individual button pointer events so card clicks cleanly */
+  padding: 13px 20px;
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  border-radius: 2px;
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: none;
+  pointer-events: none; /* Ignore pointer events so whole card clicks cleanly */
 }
 
 /* Synchronize button hover with card hover */
 .shop-card:hover .btn-primary {
-  background: var(--color-primary);
-  color: #080809;
-  border-color: var(--color-primary);
-  box-shadow: var(--box-shadow-gold);
+  background: var(--color-primary) !important;
+  color: #080809 !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 15px rgba(197, 168, 128, 0.3) !important;
 }
 
 /* Dedicated Contact Page Container */
