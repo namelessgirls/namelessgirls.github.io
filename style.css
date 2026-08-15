@@ -380,8 +380,9 @@ header.scrolled .navbar {
 
 .model-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Changed to vertical stack to prevent layout breaks with long names/badges */
+  align-items: flex-start;
+  gap: 8px; /* Spacing between name and badges */
 }
 
 .model-name {
