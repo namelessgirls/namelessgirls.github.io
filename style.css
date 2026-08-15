@@ -300,7 +300,7 @@ header.scrolled .navbar {
   position: relative; /* Anchor the absolute overlay link */
   display: flex;
   flex-direction: column;
-  height: 540px; /* Unified height to fit photo and clean text wrapper */
+  height: 560px; /* Increased to 560px to fit stacked text overlay and avoid bottom truncation */
   border-radius: 2px;
   overflow: hidden;
   border: 1px solid var(--color-border);
