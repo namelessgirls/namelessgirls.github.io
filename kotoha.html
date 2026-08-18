@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rin Amamiya - NamelessGirls【AI Agency】</title>
+  <title>Kotoha Ichinose - NamelessGirls【AI Agency】</title>
   
   <!-- Strict Crawler Exclusion -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   
-  <!-- FontAwesome for Icons -->
+  <!-- FontAwesome for Icons (Upgraded to 6.5.1 for Threads logo support) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Direct Web Fonts for branding and handwriting/signature elements -->
@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&family=Mr+De+Haviland&display=swap" rel="stylesheet">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=22.0">
+  <link rel="stylesheet" href="style.css?v=21.0">
   
   <style>
     .profile-container {
@@ -27,14 +27,14 @@
     }
     .profile-grid {
       display: grid;
-      grid-template-columns: 480px 1fr;
+      grid-template-columns: 480px 1fr; /* Widened slightly to balance portrait aspect ratio */
       gap: 60px;
-      margin-bottom: 70px;
-      align-items: stretch;
+      margin-bottom: 70px; /* Reduced to pull gallery up nicely */
+      align-items: stretch; /* Stretch columns to match heights */
     }
     .profile-main-img {
       width: 100%;
-      height: 100%;
+      height: 100%; /* Automatically scales up to match the right column's height */
       object-fit: cover;
       border: 1px solid var(--color-border);
       border-radius: 2px;
@@ -47,7 +47,7 @@
     .profile-header {
       border-bottom: 1px solid var(--color-border);
       padding-bottom: 12px;
-      margin-bottom: 22px;
+      margin-bottom: 22px; /* Restored tight elegant gap */
     }
     .profile-board {
       font-size: 0.75rem;
@@ -75,32 +75,32 @@
       line-height: 2;
       border-bottom: 1px solid var(--color-border);
       padding-bottom: 15px;
-      margin-bottom: 22px;
+      margin-bottom: 22px; /* Restored tight elegant gap */
     }
     .profile-specs span {
       display: inline-block;
       margin-right: 30px;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.45); /* Elegant low-opacity white label */
       letter-spacing: 0.5px;
     }
     .profile-specs strong {
-      color: #ffffff;
+      color: #ffffff; /* Highly visible pure white spec values */
       font-weight: 500;
       margin-left: 6px;
     }
     .profile-bio {
       font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.85); /* Much brighter white for readability */
       line-height: 1.9;
-      margin-bottom: 25px;
+      margin-bottom: 25px; /* Restored tight elegant gap */
     }
     .profile-message-box {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05); /* Separate sections cleanly */
       padding-top: 20px;
-      margin-bottom: 25px;
+      margin-bottom: 25px; /* Restored tight elegant gap */
     }
     .profile-message-title {
-      color: var(--color-primary);
+      color: var(--color-primary); /* Gold header for note section */
       display: block;
       margin-bottom: 12px;
       font-family: var(--font-title);
@@ -109,8 +109,8 @@
       font-weight: 400;
     }
     .profile-message-text {
-      font-family: 'Yomogi', 'Zen Kurenaido', cursive;
-      font-size: 1.0rem;
+      font-family: 'Yomogi', 'Zen Kurenaido', cursive; /* Authentic Japanese handwritten pen font */
+      font-size: 1.0rem; /* Elegant pen size scale */
       color: rgba(255, 255, 255, 0.92);
       line-height: 2.0;
       letter-spacing: 0.5px;
@@ -118,10 +118,10 @@
     }
     .profile-signature {
       text-align: right;
-      font-family: 'Mr De Haviland', 'Caveat', cursive;
-      font-size: 2.6rem;
+      font-family: 'Mr De Haviland', 'Caveat', cursive; /* Flowing script cursive signature font */
+      font-size: 2.6rem; /* Restored premium elegant sign scale */
       color: var(--color-primary);
-      margin-top: 10px;
+      margin-top: 10px; /* Spaced down from text to prevent overlapping and look clean */
       line-height: 1;
       letter-spacing: 1px;
     }
@@ -130,7 +130,7 @@
       flex-direction: column;
       gap: 12px;
       border-top: 1px solid var(--color-border);
-      padding-top: 22px;
+      padding-top: 22px; /* Restored tight elegant gap */
     }
     .profile-buttons-wrap {
       display: flex;
@@ -141,12 +141,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex: 1;
+      flex: 1; /* Expand equally */
       height: 48px;
       font-family: var(--font-title);
-      font-size: 0.68rem;
+      font-size: 0.68rem; /* Tightened for 1 row layout */
       font-weight: 500;
-      letter-spacing: 1px;
+      letter-spacing: 1px; /* Tightened to prevent wrapping */
       text-transform: uppercase;
       border-radius: 2px;
       cursor: pointer;
@@ -154,15 +154,13 @@
       border: 1px solid transparent;
       gap: 8px;
       padding: 0 10px;
-      text-decoration: none;
     }
-    .profile-btn.disabled {
-      opacity: 0.3 !important;
-      cursor: default !important;
-      pointer-events: none !important;
-      border: 1px solid rgba(255, 255, 255, 0.05) !important;
-      background: transparent !important;
-      color: rgba(255, 255, 255, 0.3) !important;
+    .profile-btn small {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.5px;
+      opacity: 0.8;
+      text-transform: none;
     }
     .btn-composite {
       background-color: var(--color-primary);
@@ -186,11 +184,29 @@
       box-shadow: var(--box-shadow-gold);
     }
     
+    /* Premium Coming-Soon/Locked Button Styles */
+    .profile-btn.disabled-btn {
+      background-color: rgba(255, 255, 255, 0.01) !important;
+      border: 1px solid rgba(197, 168, 128, 0.22) !important;
+      color: rgba(197, 168, 128, 0.5) !important;
+      cursor: default !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .profile-btn.disabled-btn:hover {
+      background-color: rgba(255, 255, 255, 0.01) !important;
+      border-color: rgba(197, 168, 128, 0.22) !important;
+      color: rgba(197, 168, 128, 0.5) !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    
+    /* Luxury Circle SNS Buttons Tray */
     .profile-sns-row {
       display: flex;
       gap: 16px;
       width: 100%;
-      justify-content: center;
+      justify-content: center; /* Center-aligned for high-end boutique appeal */
       margin-top: 15px;
     }
     .sns-circle-btn {
@@ -205,14 +221,20 @@
       font-size: 1.25rem;
       background: transparent;
       transition: var(--transition-smooth);
-      text-decoration: none;
     }
-    .sns-circle-btn.disabled {
-      opacity: 0.15 !important;
-      color: #555 !important;
-      border-color: rgba(255, 255, 255, 0.03) !important;
-      pointer-events: none !important;
-      cursor: default !important;
+    .sns-circle-btn[title="TikTok"]:hover {
+      border-color: #ff0050;
+      color: #ff0050;
+      box-shadow: 0 0 15px rgba(255, 0, 80, 0.25);
+      background: rgba(255, 0, 80, 0.02);
+      transform: translateY(-2px);
+    }
+    .sns-circle-btn[title="Instagram"]:hover {
+      border-color: #e1306c;
+      color: #e1306c;
+      box-shadow: 0 0 15px rgba(225, 48, 108, 0.25);
+      background: rgba(225, 48, 108, 0.02);
+      transform: translateY(-2px);
     }
     .sns-circle-btn[title="YouTube"]:hover {
       border-color: #ff0000;
@@ -221,14 +243,27 @@
       background: rgba(255, 0, 0, 0.02);
       transform: translateY(-2px);
     }
+    .sns-circle-btn.disabled {
+      opacity: 0.25;
+      cursor: default;
+    }
+    .sns-circle-btn.disabled:hover {
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      color: rgba(255, 255, 255, 0.45) !important;
+      box-shadow: none !important;
+      transform: none !important;
+      background: transparent !important;
+    }
 
-    /* Gallery Section */
+    /* Gallery Section - Prevents overlap and spaces nicely */
     .gallery-section {
       margin-top: 50px;
       padding-top: 40px;
       border-top: 1px solid rgba(255, 255, 255, 0.03);
       clear: both;
     }
+
+    /* Gallery Grid */
     .gallery-title {
       font-family: var(--font-title);
       font-size: 1.6rem;
@@ -272,7 +307,7 @@
       filter: brightness(0.95);
     }
     
-    /* Lightbox Modal */
+    /* Elegant Modal (Lightbox) */
     .lightbox-modal {
       position: fixed;
       top: 0;
@@ -320,7 +355,7 @@
       color: var(--color-primary);
     }
 
-    /* Mobile Responsive */
+    /* Mobile Responsive for Profile Page */
     @media (max-width: 968px) {
       .profile-grid {
         grid-template-columns: 1fr;
@@ -334,6 +369,12 @@
       .profile-info {
         align-items: center;
         text-align: center;
+      }
+      .profile-links-list {
+        justify-content: center;
+      }
+      .profile-sns-list {
+        justify-content: center;
       }
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -373,49 +414,48 @@
   <div class="container profile-container">
     <div class="profile-grid">
       <!-- Left Column: Portrait -->
-      <img src="assets/images/models/rin/main.jpeg" alt="Rin Amamiya Portrait" class="profile-main-img">
+      <img src="assets/images/models/kotoha/main.jpeg" alt="Kotoha Portrait" class="profile-main-img">
       
       <!-- Right Column: Specs & Bio -->
       <div class="profile-info">
         <div class="profile-header">
-          <div class="profile-board">NamelessGirls Trainee</div>
-          <h1 class="profile-name-en">RIN AMAMIYA</h1>
-          <span class="profile-name-jp">雨宮 りん &mdash; OL Daily Life</span>
+          <div class="profile-board">NamelessGirls Exclusive</div>
+          <h1 class="profile-name-en">KOTOHA ICHINOSE</h1>
+          <span class="profile-name-jp">一ノ瀬 ことは &mdash; Financial Education</span>
         </div>
         
         <!-- Specs Info -->
         <div class="profile-specs">
-          <span>Height: <strong>165</strong></span>
-          <span>Bust: <strong>88</strong></span>
-          <span>Waist: <strong>59</strong></span>
-          <span>Hips: <strong>87</strong></span>
+          <span>Height: <strong>166</strong></span>
+          <span>Bust: <strong>85</strong></span>
+          <span>Waist: <strong>58</strong></span>
+          <span>Hips: <strong>86</strong></span>
           <span>Shoes: <strong>24.0</strong></span>
         </div>
         
         <!-- Bio Description -->
         <p class="profile-bio">
-          昼間は都内の大手企業で秘書として働く、知的で真面目なOL。しかし一歩プライベートに入れば、大好きなサウナでしっかりと汗を流し、赤提灯の居酒屋で冷えたビールと焼き鳥を豪快に楽しむという、親しみやすく魅力的なギャップの持ち主。大人の落ち着きと知的な色気を併せ持ち、働く全ての人にそっと寄り添うオアシスのような存在として活動を開始。
+          難しい金融や国策、最新の経済トピックを分かりやすく解説するお勉強系バーチャルインフルエンサー。知的な佇まいと柔らかい親しみやすさを併せ持ち、SNSや動画配信を通じて、視聴者と一緒に楽しく学びながら成長するコンテンツを発信している。
         </p>
         
         <!-- Personal Message -->
         <div class="profile-message-box">
           <span class="profile-message-title">【PERSONAL NOTE】</span>
           <div class="profile-message-text">
-            平日はスーツできっちりお仕事、週末はサウナとビールでしっかりと『ととのう』。<br>
-            そんな、普通だけどとびきり幸せな日常をみなさんと共有できたら嬉しいです。<br>
-            背伸びをしすぎない、ありのままの『りん』に会いに来てくださいね。
-            <div class="profile-signature">Rin</div>
+            お金や社会の仕組みについて、難しく考えずに一緒に楽しく学んでいきましょう！<br>
+            日々の疑問を解決するヒントをわかりやすく発信していきますので、ぜひ一緒に成長していけたら嬉しいです。
+            <div class="profile-signature">Kotoha</div>
           </div>
         </div>
         
         <!-- Actions & Links -->
         <div class="profile-actions">
           <div class="profile-buttons-wrap">
-            <a class="profile-btn btn-composite disabled" title="準備中">
-              <i class="fa-regular fa-images"></i> COMPOSITE (準備中)
+            <a class="profile-btn btn-composite disabled-btn" title="デジタル写真集 (準備中)">
+              <i class="fa-solid fa-lock"></i> COMPOSITE (準備中)
             </a>
-            <a class="profile-btn btn-lounge disabled" title="準備中">
-              <i class="fa-regular fa-star"></i> VIP LOUNGE (準備中)
+            <a class="profile-btn btn-lounge disabled-btn" title="ファンクラブ (準備中)">
+              <i class="fa-solid fa-lock"></i> VIP LOUNGE (準備中)
             </a>
           </div>
           
@@ -434,7 +474,7 @@
     <div class="gallery-section">
       <h2 class="gallery-title">Photo Gallery</h2>
       <div class="gallery-grid" id="gallery-grid">
-        <!-- Loaded dynamically by JavaScript from assets/images/models/rin/gallery/ -->
+        <!-- Loaded dynamically by JavaScript from assets/images/models/kotoha/gallery/ -->
       </div>
     </div>
   </div>
@@ -458,7 +498,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const modelId = 'rin'; // Model folder ID
+      const modelId = 'kotoha'; // Model folder ID
       const galleryGrid = document.getElementById('gallery-grid');
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
@@ -473,6 +513,7 @@
           const tempImg = new Image();
           
           tempImg.onload = () => {
+            // Create gallery item elements if image exists
             const item = document.createElement('div');
             item.className = 'gallery-item';
             item.setAttribute('data-img', imgPath);
@@ -485,17 +526,20 @@
             item.appendChild(img);
             galleryGrid.appendChild(item);
             
+            // Re-apply lightbox listener on dynamic element
             item.addEventListener('click', () => {
               lightboxImg.src = imgPath;
               lightbox.classList.add('active');
-              document.body.style.overflow = 'hidden';
+              document.body.style.overflow = 'hidden'; // Lock scroll
             });
             
+            // Loop next image index
             index++;
             tryLoadNext();
           };
           
           tempImg.onerror = () => {
+            // End loading loop when sequence breaks
             console.log(`Finished loading gallery for ${modelId}. Total: ${index - 1} images.`);
           };
           
@@ -505,11 +549,13 @@
         tryLoadNext();
       }
 
+      // Initialize dynamic gallery fetch
       loadGalleryImages();
 
+      // Lightbox control functions
       const closeLightbox = () => {
         lightbox.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.style.overflow = ''; // Unlock scroll
         setTimeout(() => {
           lightboxImg.src = '';
         }, 300);
