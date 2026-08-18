@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&family=Mr+De+Haviland&display=swap" rel="stylesheet">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=24.0">
+  <link rel="stylesheet" href="style.css?v=25.0">
   
   <style>
     .profile-container {
@@ -188,16 +188,16 @@
     /* Premium Coming-Soon/Locked Button Styles */
     .profile-btn.disabled-btn {
       background-color: rgba(255, 255, 255, 0.01) !important;
-      border: 1px solid rgba(197, 168, 128, 0.22) !important;
-      color: rgba(197, 168, 128, 0.5) !important;
+      border: 1px solid rgba(197, 168, 128, 0.4) !important;
+      color: rgba(197, 168, 128, 0.75) !important;
       cursor: default !important;
       box-shadow: none !important;
       transform: none !important;
     }
     .profile-btn.disabled-btn:hover {
       background-color: rgba(255, 255, 255, 0.01) !important;
-      border-color: rgba(197, 168, 128, 0.22) !important;
-      color: rgba(197, 168, 128, 0.5) !important;
+      border-color: rgba(197, 168, 128, 0.4) !important;
+      color: rgba(197, 168, 128, 0.75) !important;
       box-shadow: none !important;
       transform: none !important;
     }
@@ -237,22 +237,22 @@
       background: rgba(225, 48, 108, 0.02);
       transform: translateY(-2px);
     }
-    .sns-circle-btn[title="YouTube"]:hover {
-      border-color: #ff0000;
-      color: #ff0000;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
-      background: rgba(255, 0, 0, 0.02);
-      transform: translateY(-2px);
-    }    .sns-circle-btn.disabled {
-      opacity: 0.25;
-      cursor: default;
+    .sns-circle-btn[title="YouTube"] {
+      border-color: #ff0000 !important;
+      color: #ff0000 !important;
+      background: rgba(255, 0, 0, 0.04) !important;
     }
-    .sns-circle-btn.disabled:hover {
-      border-color: rgba(255, 255, 255, 0.12) !important;
+    .sns-circle-btn[title="YouTube"]:hover {
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.35);
+      background: rgba(255, 0, 0, 0.08) !important;
+      transform: translateY(-2px);
+    }
+    .sns-circle-btn.disabled {
+      opacity: 1 !important;
       color: rgba(255, 255, 255, 0.45) !important;
-      box-shadow: none !important;
-      transform: none !important;
-      background: transparent !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+      pointer-events: none !important;
+      cursor: default !important;
     }
 
     /* Gallery Section - Prevents overlap and spaces nicely */

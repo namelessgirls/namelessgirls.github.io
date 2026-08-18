@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&family=Mr+De+Haviland&display=swap" rel="stylesheet">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=24.0">
+  <link rel="stylesheet" href="style.css?v=25.0">
   
   <style>
     .profile-container {
@@ -158,12 +158,12 @@
       text-decoration: none;
     }
     .profile-btn.disabled {
-      opacity: 0.3 !important;
+      opacity: 1 !important;
       cursor: default !important;
       pointer-events: none !important;
-      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
       background: transparent !important;
-      color: rgba(255, 255, 255, 0.3) !important;
+      color: rgba(255, 255, 255, 0.45) !important;
     }
     .btn-composite {
       background-color: var(--color-primary);
@@ -209,17 +209,20 @@
       text-decoration: none;
     }
     .sns-circle-btn.disabled {
-      opacity: 0.15 !important;
-      color: #555 !important;
-      border-color: rgba(255, 255, 255, 0.03) !important;
+      opacity: 1 !important;
+      color: rgba(255, 255, 255, 0.45) !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
       pointer-events: none !important;
       cursor: default !important;
     }
+    .sns-circle-btn[title="YouTube"] {
+      border-color: #ff0000 !important;
+      color: #ff0000 !important;
+      background: rgba(255, 0, 0, 0.04) !important;
+    }
     .sns-circle-btn[title="YouTube"]:hover {
-      border-color: #ff0000;
-      color: #ff0000;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
-      background: rgba(255, 0, 0, 0.02);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.35);
+      background: rgba(255, 0, 0, 0.08) !important;
       transform: translateY(-2px);
     }
 
@@ -400,14 +403,14 @@
         
         <!-- Bio Description -->
         <p class="profile-bio">
-          息のぴったり合ったシンクロ率の高いダンスパフォーマンスと、K-POPカルチャーにインスパイアされた華やかで躍動的な日常Vlogで人気を集める、まるで双子のような女性ユニット。天真爛漫でキュートな愛されキャラの『るな (Luna)』と、クールで大人っぽくファッショナブルな『りあ (Lea)』。二人の絶妙なバディ感と明るいシナジー効果で、見る者全てに新鮮なハッピーエネルギーを届けるべく、研修生として新たに合流。
+          息のぴったり合ったシンクロ率の高い日常Vlogや、K-POPカルチャーにインスパイアされた華やかで躍動的なライフスタイル投稿で人気を集める、まるで双子のような女性ユニット。天真爛漫でキュートな愛されキャラの『るな (Luna)』と、クールで大人っぽくファッショナブルな『りあ (Lea)』。二人の絶妙なバディ感と明るいシナジー効果で、見る者全てに新鮮なハッピーエネルギーを届けるべく、研修生として新たに合流。
         </p>
         
         <!-- Personal Message -->
         <div class="profile-message-box">
           <span class="profile-message-title">【PERSONAL NOTE】</span>
           <div class="profile-message-text">
-            私たちの息の合った掛け合いとダンスを通じて、画面の前の皆さんに元気を届けたいです！<br>
+            私たちの息の合った掛け合いと日常のやり取りを通じて、画面の前の皆さんに元気を届けたいです！<br>
             最新のメイクやファッション、二人のリアルなハッピーライフをお届けするので楽しみに待っていてくださいね。<br>
             私たちのストーリーに、ぜひ加わってください！
             <div class="profile-signature">Luna & Lea</div>

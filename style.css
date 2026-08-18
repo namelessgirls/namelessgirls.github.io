@@ -1460,11 +1460,23 @@ footer {
 }
 
 .sns-circle-btn.disabled {
-  color: #333 !important;
-  border-color: rgba(255, 255, 255, 0.03) !important;
-  opacity: 0.25 !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  opacity: 1 !important;
   pointer-events: none !important;
   cursor: default !important;
+}
+
+/* YouTube brand color active by default for visibility */
+.sns-circle-btn[title="YouTube"] {
+  border-color: #ff0000 !important;
+  color: #ff0000 !important;
+  background: rgba(255, 0, 0, 0.04) !important;
+}
+.sns-circle-btn[title="YouTube"]:hover {
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.35) !important;
+  background: rgba(255, 0, 0, 0.08) !important;
+  transform: translateY(-2px) !important;
 }
 
 /* Trainee Badge and Coming Soon Overlay Styling */
