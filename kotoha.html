@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&family=Mr+De+Haviland&display=swap" rel="stylesheet">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=25.0">
+  <link rel="stylesheet" href="style.css?v=26.0">
   
   <style>
     .profile-container {
@@ -237,22 +237,19 @@
       background: rgba(225, 48, 108, 0.02);
       transform: translateY(-2px);
     }
-    .sns-circle-btn[title="YouTube"] {
-      border-color: #ff0000 !important;
-      color: #ff0000 !important;
-      background: rgba(255, 0, 0, 0.04) !important;
-    }
-    .sns-circle-btn[title="YouTube"]:hover {
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.35);
-      background: rgba(255, 0, 0, 0.08) !important;
-      transform: translateY(-2px);
-    }
     .sns-circle-btn.disabled {
       opacity: 1 !important;
-      color: rgba(255, 255, 255, 0.45) !important;
-      border-color: rgba(255, 255, 255, 0.12) !important;
+      color: rgba(255, 255, 255, 0.25) !important;
+      border-color: rgba(255, 255, 255, 0.06) !important;
       pointer-events: none !important;
       cursor: default !important;
+    }
+    .sns-circle-btn[title="YouTube"]:hover {
+      border-color: #ff0000;
+      color: #ff0000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.25);
+      background: rgba(255, 0, 0, 0.02);
+      transform: translateY(-2px);
     }
 
     /* Gallery Section - Prevents overlap and spaces nicely */
