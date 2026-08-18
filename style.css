@@ -340,7 +340,7 @@ header.scrolled .navbar {
   height: 100%;
   object-fit: cover;
   transition: var(--transition-smooth);
-  filter: brightness(0.85);
+  image-rendering: -webkit-optimize-contrast; /* 縮小時のボケ・ジャギーを防止して画質をクリアに保つ */
 }
 
 .model-img.cosplay-img {
