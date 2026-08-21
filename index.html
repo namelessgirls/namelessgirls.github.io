@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom Stylesheet with Cache Buster -->
-  <link rel="stylesheet" href="style.css?v=31.0">
+  <link rel="stylesheet" href="style.css?v=32.0">
 </head>
 <body>
 
@@ -42,15 +42,65 @@
     </div>
   </header>
 
-  <!-- Hero Section (VOGUE & Satoru Japan style full-screen single keyvisual) -->
-  <section id="home" class="hero">
-    <div class="hero-slide" style="background-image: url('assets/images/models/mii/main.jpg'); background-position: center 15%;"></div>
-    <div class="hero-slide" style="background-image: url('assets/images/models/rin/main.jpeg'); background-position: center 10%;"></div>
-    <div class="hero-slide" style="background-image: url('assets/images/models/luna-lea/main.jpeg'); background-position: center 15%;"></div>
-    <div class="hero-slide" style="background-image: url('assets/images/models/noa/main.jpg'); background-position: center 10%;"></div>
-    <div class="hero-slide" style="background-image: url('assets/images/models/kotoha/main.jpeg'); background-position: center 12%;"></div>
+  <!-- Hero Section (Interactive Split-Screen Showcase representing all models) -->
+  <section id="home" class="hero-split-container">
+    <!-- Model Column 1: Mii -->
+    <a href="mii.html" class="split-col">
+      <div class="split-bg" style="background-image: url('assets/images/models/mii/main.jpg'); background-position: center 15%;"></div>
+      <div class="split-overlay"></div>
+      <div class="split-content">
+        <span class="split-num">01</span>
+        <h2 class="split-name">MII HOSHIMIYA</h2>
+        <span class="split-tag">Cosplay / Action</span>
+      </div>
+    </a>
     
-    <div class="container">
+    <!-- Model Column 2: Rin -->
+    <a href="rin.html" class="split-col">
+      <div class="split-bg" style="background-image: url('assets/images/models/rin/main.jpeg'); background-position: center 10%;"></div>
+      <div class="split-overlay"></div>
+      <div class="split-content">
+        <span class="split-num">02</span>
+        <h2 class="split-name">RIN AMAMIYA</h2>
+        <span class="split-tag">OL Daily Life</span>
+      </div>
+    </a>
+    
+    <!-- Model Column 3: Luna & Lea -->
+    <a href="luna-lea.html" class="split-col">
+      <div class="split-bg" style="background-image: url('assets/images/models/luna-lea/main.jpeg'); background-position: center 15%;"></div>
+      <div class="split-overlay"></div>
+      <div class="split-content">
+        <span class="split-num">03</span>
+        <h2 class="split-name">LUNA & LEA</h2>
+        <span class="split-tag">Daily Vlog</span>
+      </div>
+    </a>
+    
+    <!-- Model Column 4: Noa -->
+    <a href="noa.html" class="split-col">
+      <div class="split-bg" style="background-image: url('assets/images/models/noa/main.jpg'); background-position: center 10%;"></div>
+      <div class="split-overlay"></div>
+      <div class="split-content">
+        <span class="split-num">04</span>
+        <h2 class="split-name">NOA SHIRAISHI</h2>
+        <span class="split-tag">Fashion Model</span>
+      </div>
+    </a>
+    
+    <!-- Model Column 5: Kotoha -->
+    <a href="kotoha.html" class="split-col">
+      <div class="split-bg" style="background-image: url('assets/images/models/kotoha/main.jpeg'); background-position: center 12%;"></div>
+      <div class="split-overlay"></div>
+      <div class="split-content">
+        <span class="split-num">05</span>
+        <h2 class="split-name">KOTOHA ICHINOSE</h2>
+        <span class="split-tag">Financial Ed.</span>
+      </div>
+    </a>
+
+    <!-- Floating Brand Overlay -->
+    <div class="hero-brand-overlay">
       <div class="hero-brand-wrap">
         <h1 class="hero-title">NAMELESS<span>GIRLS</span></h1>
         <span class="hero-subtitle">Next Generation Digital Talents</span>
