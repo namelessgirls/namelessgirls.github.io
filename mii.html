@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Kurenaido&family=Mr+De+Haviland&display=swap" rel="stylesheet">
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=27.0">
+  <link rel="stylesheet" href="style.css?v=28.0">
   
   <style>
     .profile-container {
@@ -183,6 +183,24 @@
       background-color: var(--color-primary);
       color: #080809;
       box-shadow: var(--box-shadow-gold);
+    }
+    
+    /* Premium Coming-Soon/Locked Button Styles */
+    .profile-btn.disabled-btn {
+      background-color: rgba(255, 255, 255, 0.01) !important;
+      border: 1px solid rgba(197, 168, 128, 0.4) !important;
+      color: rgba(197, 168, 128, 0.75) !important;
+      cursor: default !important;
+      box-shadow: none !important;
+      transform: none !important;
+      pointer-events: none !important;
+    }
+    .profile-btn.disabled-btn:hover {
+      background-color: rgba(255, 255, 255, 0.01) !important;
+      border-color: rgba(197, 168, 128, 0.4) !important;
+      color: rgba(197, 168, 128, 0.75) !important;
+      box-shadow: none !important;
+      transform: none !important;
     }
     
     /* Luxury Circle SNS Buttons Tray */
@@ -428,8 +446,8 @@
             <a href="https://namelessgirls.booth.pm/" target="_blank" class="profile-btn btn-composite">
               <i class="fa-regular fa-images"></i> COMPOSITE (写真集)
             </a>
-            <a href="lounge.html" class="profile-btn btn-lounge">
-              <i class="fa-regular fa-star"></i> VIP LOUNGE (ファンクラブ)
+            <a class="profile-btn btn-lounge disabled-btn" title="ファンクラブ (準備中)">
+              <i class="fa-solid fa-lock"></i> VIP LOUNGE (準備中)
             </a>
           </div>
           
