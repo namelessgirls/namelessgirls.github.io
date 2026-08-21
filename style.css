@@ -217,7 +217,6 @@ header.scrolled .navbar {
   color: var(--color-primary);
 }
 
-/* Hero Section - Satoru Japan style full-screen visual only */
 .hero {
   height: 100vh;
   display: flex;
@@ -225,11 +224,36 @@ header.scrolled .navbar {
   justify-content: center;
   text-align: center;
   position: relative;
-  background-image: url('assets/images/mii_cosplay.jpg');
-  background-size: cover;
-  background-position: center 25%;
-  background-attachment: fixed;
   overflow: hidden;
+  background-color: #080809;
+}
+
+/* Background image rotation slideshow representing all models */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 1;
+  animation: heroFade 20s linear infinite;
+  image-rendering: -webkit-optimize-contrast;
+}
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 4s; }
+.hero-slide:nth-child(3) { animation-delay: 8s; }
+.hero-slide:nth-child(4) { animation-delay: 12s; }
+.hero-slide:nth-child(5) { animation-delay: 16s; }
+
+@keyframes heroFade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  20% { opacity: 1; }
+  25% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 /* Luxury gradient overlay - fades out top-down and masks towards dark theme background */
@@ -247,12 +271,12 @@ header.scrolled .navbar {
     rgba(8, 8, 9, 0.85) 85%,
     var(--bg-color) 100%
   );
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero .container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   pointer-events: none; /* No blocking click inputs */
 }
