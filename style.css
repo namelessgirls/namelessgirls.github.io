@@ -266,9 +266,9 @@ header.scrolled .navbar {
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(8, 8, 9, 0.2) 0%,
-    rgba(8, 8, 9, 0.45) 50%,
-    rgba(8, 8, 9, 0.9) 100%
+    rgba(8, 8, 9, 0.05) 0%,
+    rgba(8, 8, 9, 0.15) 50%,
+    rgba(8, 8, 9, 0.75) 100%
   );
   transition: opacity 0.6s ease;
   z-index: 2;
@@ -307,10 +307,10 @@ header.scrolled .navbar {
   text-transform: uppercase;
 }
 
-/* Interactive Hover Effects */
-.hero-split-container:hover .split-col {
-  flex: 0.7;
-  filter: grayscale(40%) brightness(50%);
+/* Interactive Hover Effects (Only active when specifically hovering a model card) */
+.hero-split-container:has(.split-col:hover) .split-col:not(:hover) {
+  flex: 0.75;
+  filter: grayscale(20%) brightness(75%);
 }
 
 .hero-split-container .split-col:hover {
@@ -327,8 +327,8 @@ header.scrolled .navbar {
   background: linear-gradient(
     to bottom,
     rgba(8, 8, 9, 0.0) 0%,
-    rgba(8, 8, 9, 0.1) 40%,
-    rgba(8, 8, 9, 0.75) 100%
+    rgba(8, 8, 9, 0.05) 40%,
+    rgba(8, 8, 9, 0.6) 100%
   );
 }
 
@@ -368,8 +368,8 @@ header.scrolled .navbar {
   transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Hide center brand text completely when hovering any model to let the model shine */
-.hero-split-container:hover .hero-brand-wrap {
+/* Hide center brand text ONLY when an actual model card is hovered */
+.hero-split-container:has(.split-col:hover) .hero-brand-wrap {
   opacity: 0;
   transform: scale(0.92);
   pointer-events: none;
