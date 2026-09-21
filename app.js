@@ -182,4 +182,60 @@ ${message}
       if (fileNameText) fileNameText.textContent = 'ファイルが選択されていません';
     });
   }
+
+  // 6. Fan Letter & Request Modal Handler
+  const openFanModalBtn = document.getElementById('open-fan-modal-btn');
+  const fanModal = document.getElementById('fan-letter-modal');
+  const closeFanModalBtn = document.getElementById('close-fan-modal-btn');
+  const successCloseBtn = document.getElementById('modal-success-close-btn');
+  const fanForm = document.getElementById('fan-letter-form');
+  const fanSuccessWrap = document.getElementById('fan-modal-success');
+
+  if (openFanModalBtn && fanModal) {
+    // Open Modal
+    openFanModalBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      fanModal.style.display = 'flex';
+      if (fanForm) fanForm.style.display = 'block';
+      if (fanSuccessWrap) fanSuccessWrap.style.display = 'none';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+
+    // Close Modal Function
+    const closeModal = () => {
+      fanModal.style.display = 'none';
+      document.body.style.overflow = '';
+      if (fanForm) fanForm.reset();
+    };
+
+    if (closeFanModalBtn) closeFanModalBtn.addEventListener('click', closeModal);
+    if (successCloseBtn) successCloseBtn.addEventListener('click', closeModal);
+
+    // Close on outside click
+    fanModal.addEventListener('click', (e) => {
+      if (e.target === fanModal) {
+        closeModal();
+      }
+    });
+
+    // Handle Fan Message Submission
+    if (fanForm) {
+      fanForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const model = document.getElementById('fan-model-select').value;
+        const nickname = document.getElementById('fan-nickname').value;
+        const message = document.getElementById('fan-message').value;
+
+        // Switch to success view
+        fanForm.style.display = 'none';
+        if (fanSuccessWrap) {
+          fanSuccessWrap.style.display = 'block';
+        }
+
+        createToast(`${model}へのメッセージを送信しました！✨`);
+      });
+    }
+  }
 });
+
