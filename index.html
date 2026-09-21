@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom Stylesheet with Cache Buster -->
-  <link rel="stylesheet" href="style.css?v=44.0">
+  <link rel="stylesheet" href="style.css?v=45.0">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
         <li><a href="models.html">Models</a></li>
         <li><a href="#media">Media</a></li>
         <li><a href="#store">Store</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </header>
@@ -320,6 +320,132 @@
     </div>
   </section>
 
+  <!-- Community & Contact Section (Unified Hub) -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Community & Contact<span>コミュニティ＆総合お問い合わせ</span></h2>
+      <p class="section-subtitle">
+        世界25万人のファンが集まる公式コミュニティ、モデルへの応援メッセージ・ギフト、および企業様からのお仕事お問い合わせ窓口です。
+      </p>
+
+      <!-- 4 Hub Cards Grid -->
+      <div class="contact-hub-grid">
+        <!-- Card 1: Discord -->
+        <div class="hub-card">
+          <span class="hub-badge"><i class="fa-solid fa-globe" style="margin-right: 4px;"></i> Global Community</span>
+          <i class="fa-brands fa-discord hub-card-icon" style="color: #5865F2;"></i>
+          <h3 class="hub-card-title">Official Discord</h3>
+          <div class="hub-subtitle-jp">公式ディスコード</div>
+          <p class="hub-card-desc">
+            世界中のファンが集まる公式チャットサーバー。日々の雑談、先行オフショットの公開、最新情報の発表などをお楽しみいただけます。
+          </p>
+          <a href="https://discord.gg/BwdKzkbsw" target="_blank" class="btn btn-primary" style="background: rgba(88, 101, 242, 0.15); border-color: #5865F2; color: #fff;">
+            <i class="fa-brands fa-discord" style="margin-right: 8px;"></i> Join Discord
+          </a>
+        </div>
+
+        <!-- Card 2: Ko-fi (Support & Gifts) -->
+        <div class="hub-card">
+          <span class="hub-badge"><i class="fa-solid fa-heart" style="margin-right: 4px;"></i> Support & Gifts</span>
+          <i class="fa-solid fa-mug-hot hub-card-icon" style="color: #FF5E5B;"></i>
+          <h3 class="hub-card-title">Ko-fi Support</h3>
+          <div class="hub-subtitle-jp">ギフト・応援</div>
+          <p class="hub-card-desc">
+            お茶代（$3〜）のギフトと一緒に、モデルへ特別なメッセージを直接送信。限定の高画質オフショット壁紙がアンロックされます。
+          </p>
+          <a href="https://ko-fi.com/" target="_blank" class="btn btn-primary" style="background: rgba(255, 94, 91, 0.15); border-color: #FF5E5B; color: #fff;">
+            <i class="fa-solid fa-mug-hot" style="margin-right: 8px;"></i> Support on Ko-fi
+          </a>
+        </div>
+
+        <!-- Card 3: Free Fan Letter / Request Box -->
+        <div class="hub-card">
+          <span class="hub-badge"><i class="fa-regular fa-envelope" style="margin-right: 4px;"></i> Free Message</span>
+          <i class="fa-regular fa-paper-plane hub-card-icon" style="color: var(--color-primary);"></i>
+          <h3 class="hub-card-title">Fan Letter</h3>
+          <div class="hub-subtitle-jp">ファンレター・リクエスト</div>
+          <p class="hub-card-desc">
+            モデルへの無料の応援メッセージ、質問、やってほしいコスプレや旅のリクエストはこちらから。動画企画等の参考にさせていただきます。
+          </p>
+          <button type="button" id="open-fan-modal-btn" class="btn btn-primary">
+            <i class="fa-regular fa-paper-plane" style="margin-right: 8px;"></i> Send Message
+          </button>
+        </div>
+
+        <!-- Card 4: Business Inquiries -->
+        <div class="hub-card">
+          <span class="hub-badge"><i class="fa-solid fa-briefcase" style="margin-right: 4px;"></i> For Business</span>
+          <i class="fa-solid fa-briefcase hub-card-icon" style="color: #c5a880;"></i>
+          <h3 class="hub-card-title">Business Inquiry</h3>
+          <div class="hub-subtitle-jp">出演依頼・お問い合わせ</div>
+          <p class="hub-card-desc">
+            モデルへのPR案件・広告出演、画像・映像のライセンス利用、コラボレーション企画など、法人・メディア様向けのお問い合わせ窓口です。
+          </p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfN60GDHmFyubcyBOjbhVW6LduVAwVngHMPbrD3luUwljD1Tw/viewform" target="_blank" class="btn btn-primary" style="background: rgba(197, 168, 128, 0.15); border-color: var(--color-primary); color: #fff;">
+            <i class="fa-solid fa-file-lines" style="margin-right: 8px;"></i> Open Form
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fan Letter / Request Modal Popup -->
+  <div id="fan-letter-modal" class="custom-modal-overlay" style="display: none;">
+    <div class="custom-modal-content">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <i class="fa-regular fa-envelope-open" style="color: var(--color-primary); font-size: 1.2rem; margin-right: 10px;"></i>
+          <h3 class="modal-title">Fan Letter & Request</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="close-fan-modal-btn">&times;</button>
+      </div>
+      <p class="modal-intro">
+        モデルへの応援メッセージや、やってほしいコスプレ・企画のリクエストをお気軽にどうぞ💌
+      </p>
+
+      <form id="fan-letter-form" class="modal-form">
+        <!-- Recipient Model Select -->
+        <div class="form-group" style="margin-bottom: 18px; text-align: left;">
+          <label class="form-label" style="display: block; font-size: 0.75rem; color: var(--color-primary); margin-bottom: 6px; letter-spacing: 0.5px;"><i class="fa-regular fa-user" style="margin-right: 6px;"></i> 宛先モデル / To Model</label>
+          <select id="fan-model-select" class="form-control" required style="width: 100%; height: 44px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: #fff; padding: 0 12px; border-radius: 2px; font-family: inherit; font-size: 0.85rem;">
+            <option value="Mii Hoshimiya" style="background: #18181c; color: #fff;">星野 みぃ / Mii Hoshino</option>
+            <option value="Rin Tachibana" style="background: #18181c; color: #fff;">橘 りん / Rin Tachibana</option>
+            <option value="Luna & Lea" style="background: #18181c; color: #fff;">有栖 さな & 桜井 ゆあ / Luna & Lea</option>
+            <option value="Noa Shiraishi" style="background: #18181c; color: #fff;">白石 乃愛 / Noa Shiraishi</option>
+            <option value="Kotoha Ichinose" style="background: #18181c; color: #fff;">一ノ瀬 ことは / Kotoha Ichinose</option>
+            <option value="All Models" style="background: #18181c; color: #fff;">エージェンシー全体 / All Models</option>
+          </select>
+        </div>
+
+        <!-- Nickname Input -->
+        <div class="form-group" style="margin-bottom: 18px; text-align: left;">
+          <label class="form-label" style="display: block; font-size: 0.75rem; color: var(--color-primary); margin-bottom: 6px; letter-spacing: 0.5px;"><i class="fa-regular fa-id-badge" style="margin-right: 6px;"></i> ニックネーム / Nickname</label>
+          <input type="text" id="fan-nickname" class="form-control" placeholder="あなたのニックネーム (Your name)" required maxlength="50" style="width: 100%; height: 44px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: #fff; padding: 0 12px; border-radius: 2px; font-family: inherit; font-size: 0.85rem;">
+        </div>
+
+        <!-- Message Input -->
+        <div class="form-group" style="margin-bottom: 22px; text-align: left;">
+          <label class="form-label" style="display: block; font-size: 0.75rem; color: var(--color-primary); margin-bottom: 6px; letter-spacing: 0.5px;"><i class="fa-regular fa-comment-dots" style="margin-right: 6px;"></i> メッセージ・リクエスト / Message</label>
+          <textarea id="fan-message" class="form-control" rows="4" placeholder="応援メッセージや、やってほしいコスプレ・旅のリクエストを書いてね！" required maxlength="1000" style="width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: #fff; padding: 12px; border-radius: 2px; font-family: inherit; font-size: 0.85rem; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary modal-submit-btn" style="width: 100%; height: 48px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">
+          <i class="fa-regular fa-paper-plane" style="margin-right: 8px;"></i> メッセージを送信する
+        </button>
+      </form>
+
+      <!-- Success State (Initially Hidden) -->
+      <div id="fan-modal-success" class="modal-success-wrap" style="display: none; padding: 30px 10px; text-align: center;">
+        <i class="fa-solid fa-circle-check" style="color: #4BB543; font-size: 3rem; margin-bottom: 15px; display: inline-block;"></i>
+        <h4 style="font-family: var(--font-title); font-size: 1.2rem; color: #fff; margin-bottom: 10px; letter-spacing: 1px;">Thank you! 🤍</h4>
+        <p style="font-size: 0.85rem; color: var(--color-text-sub); line-height: 1.6; margin-bottom: 25px;">
+          メッセージを受け付けました！<br>モデル本人と運営チームに大切にお届けします✨
+        </p>
+        <button type="button" class="btn btn-secondary" id="modal-success-close-btn" style="min-width: 140px; height: 42px;">閉じる</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -334,7 +460,7 @@
           <li><a href="models.html">Models</a></li>
           <li><a href="#media">Media</a></li>
           <li><a href="#store">Store</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
@@ -344,6 +470,6 @@
   </footer>
 
   <!-- Custom JavaScript File with Cache Buster -->
-  <script src="app.js?v=6.0"></script>
+  <script src="app.js?v=8.0"></script>
 </body>
 </html>

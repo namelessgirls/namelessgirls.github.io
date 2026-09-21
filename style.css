@@ -1812,7 +1812,14 @@ footer {
   font-size: 1.15rem;
   letter-spacing: 1.5px;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
+}
+
+.hub-subtitle-jp {
+  font-size: 0.72rem;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
 .hub-card-desc {
