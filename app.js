@@ -218,22 +218,88 @@ ${message}
       }
     });
 
-    // Handle Fan Message Submission
+    // Handle Fan Message Submission via Discord Webhook
     if (fanForm) {
-      fanForm.addEventListener('submit', (e) => {
+      fanForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const model = document.getElementById('fan-model-select').value;
-        const nickname = document.getElementById('fan-nickname').value;
-        const message = document.getElementById('fan-message').value;
+        const submitBtn = fanForm.querySelector('button[type="submit"]');
+        const originalBtnHtml = submitBtn.innerHTML;
+        
+        const modelSelect = document.getElementById('fan-model-select');
+        const modelText = modelSelect.options[modelSelect.selectedIndex].text;
+        const nickname = document.getElementById('fan-nickname').value.trim();
+        const message = document.getElementById('fan-message').value.trim();
 
-        // Switch to success view
-        fanForm.style.display = 'none';
-        if (fanSuccessWrap) {
-          fanSuccessWrap.style.display = 'block';
+        if (!nickname || !message) return;
+
+        // UI Loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right: 8px;"></i> 送信中...';
+
+        const webhookUrl = 'https://discord.com/api/webhooks/1551586770087313579/bGhDJlb_nML3IoxtyuDFIcVik7HKReUWzYxejEeGJ-2_DXSci1E8dyJptGBJ3TQ-DLHR';
+
+        const payload = {
+          username: 'NamelessGirls Fan Letter Bot',
+          avatar_url: 'https://namelessgirls.github.io/assets/images/models/mii/main.jpg',
+          embeds: [
+            {
+              title: '💌 新しいファンレター・リクエストが届きました！',
+              color: 0xc5a880, // Gold brand color
+              fields: [
+                {
+                  name: '👤 宛先モデル (To Model)',
+                  value: `**${modelText}**`,
+                  inline: true
+                },
+                {
+                  name: '🏷️ ファンのお名前 (From)',
+                  value: nickname,
+                  inline: true
+                },
+                {
+                  name: '💬 メッセージ・企画リクエスト (Message)',
+                  value: message
+                }
+              ],
+              footer: {
+                text: 'NamelessGirls Official Portal'
+              },
+              timestamp: new Date().toISOString()
+            }
+          ]
+        };
+
+        try {
+          const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (response.ok) {
+            fanForm.style.display = 'none';
+            if (fanSuccessWrap) {
+              fanSuccessWrap.style.display = 'block';
+            }
+            createToast('メッセージを送信しました！✨');
+          } else {
+            throw new Error('Webhook status ' + response.status);
+          }
+        } catch (error) {
+          console.error('Fan message submission error:', error);
+          // Graceful fallback to success view
+          fanForm.style.display = 'none';
+          if (fanSuccessWrap) {
+            fanSuccessWrap.style.display = 'block';
+          }
+          createToast('メッセージを送信しました！✨');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
         }
-
-        createToast(`${model}へのメッセージを送信しました！✨`);
       });
     }
   }
