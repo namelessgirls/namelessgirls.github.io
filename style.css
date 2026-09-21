@@ -1749,3 +1749,100 @@ footer {
     letter-spacing: 0.5px;
   }
 }
+
+/* ==========================================================================
+   Communication & Contact Hub (Discord, Ko-fi, Fan Box, Business)
+   ========================================================================== */
+.contact-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 960px;
+  margin: 45px auto 0;
+}
+
+.hub-card {
+  background: rgba(18, 18, 20, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hub-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 168, 128, 0.15);
+}
+
+.hub-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: rgba(197, 168, 128, 0.12);
+  color: var(--color-primary);
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  margin-bottom: 15px;
+}
+
+.hub-card-icon {
+  font-size: 2.4rem;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.hub-card:hover .hub-card-icon {
+  transform: scale(1.1);
+}
+
+.hub-card-title {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.hub-card-desc {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--color-text-sub);
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.hub-card .btn {
+  width: 100%;
+  max-width: 280px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .contact-hub-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .hub-card {
+    padding: 30px 20px;
+  }
+}
+
